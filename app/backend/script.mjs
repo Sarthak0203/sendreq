@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 
 const url = 'https://deleteoldposts-b67h2kof7a-uc.a.run.app';
+const url2 = 'https://deleteoldusers-b67h2kof7a-uc.a.run.app';
 
 async function sendRequest() {
   try {
@@ -16,6 +17,21 @@ async function sendRequest() {
     console.error('Error:', error);
   }
 }
+async function sendRequest2() {
+  try {
+    const response = await fetch(url2);
+    if (response.ok) {
+      console.log('Request successful:', await response.text());
+      // Call the function again to send another request
+      sendRequest();
+    } else {
+      console.error('Request failed:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 
 // Start the first request
 sendRequest();
+sendRequest2();

@@ -2,12 +2,13 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 
-export default function page() {
+export default function Home() {
   const [logs, setLogs] = useState([]);
   const [isPaused, setIsPaused] = useState(false);
   const controllerRef = useRef(null);
 
   const url = 'https://deleteoldposts-b67h2kof7a-uc.a.run.app';
+  const url2 = 'https://deleteoldusers-b67h2kof7a-uc.a.run.app';
 
   const addLog = (message) => {
     setLogs((prevLogs) => [...prevLogs, message]);
